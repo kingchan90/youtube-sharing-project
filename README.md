@@ -41,6 +41,13 @@ cd youtube-sharing-project
 npm install
 ```
 
+3. Install the backend
+
+```bash
+cd backend
+npm install
+```
+
 ### Running the Application
 
 1. Start the development server
@@ -51,8 +58,24 @@ npm run dev
 
 2. Access the application in your web browser at [http://localhost:5173/](http://localhost:5173/)
 
+### Running the Backend
+1. Start the development server
+```bash
+node server.js
+```
+2. Test the backend
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"username":"user1","password":"password1"}' http://localhost:3000/login
+```
 ## Usage
 1. Log in with your username and password.
+```bash
+{
+  "username": "user1",
+  "password": "password1"
+}
+
+```
 2. Input a URL of the video you want to embed.
 3. Click the "Share a movie" button to display the sharing form
 4. Input the Youtube URL then click on share
