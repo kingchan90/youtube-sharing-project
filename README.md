@@ -1,27 +1,59 @@
-# React + TypeScript + Vite
+# Youtube Sharing Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Youtube Sharing Web Application README! This project allows users to log in, input a URL, and display the list of shared videos
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before you begin, ensure you have the following prerequisites installed:
 
-## Expanding the ESLint configuration
+- Node.js (v14.0 or higher)
+- npm (v6.0 or higher)
+- Git (for cloning the repository)
+- [Vite](https://vitejs.dev/) (v2.0 or higher)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Installing Vite
 
-- Configure the top-level `parserOptions` property like this:
+If you don't have Vite installed, you can install it globally using npm:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+npm install -g create-vite
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Or, if you prefer to use it as a local project dependency:
+
+```bash
+npm install --save-dev create-vite
+```
+
+### Installation & Configuration
+
+1. Clone the repository
+
+```bash
+git https://github.com/kingchan90/youtube-sharing-project.git
+cd youtube-sharing-project
+
+```
+
+2. Install project dependencies:
+
+```bash
+npm install
+```
+
+### Running the Application
+
+1. Start the development server
+
+```bash
+npm run dev
+```
+
+2. Access the application in your web browser at [http://localhost:5173/](http://localhost:5173/)
+
+## Usage
+1. Log in with your username and password.
+2. Input a URL of the video you want to embed.
+3. Click the "Share a movie" button to display the sharing form
+4. Input the Youtube URL then click on share
+5. Enjoy your videos
