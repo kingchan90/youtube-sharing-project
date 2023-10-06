@@ -67,6 +67,15 @@ node server.js
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"username":"user1","password":"password1"}' http://localhost:3000/login
 ```
+
+### Test
+```bash
+npm test
+```
+
+### Login Information
+user1@gmail.com / password1
+
 ## Usage
 1. Log in with your username and password.
 ```bash
