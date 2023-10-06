@@ -1,25 +1,39 @@
 import React, { useState } from "react";
-import { FormContainer, Input } from './styles';
+import { FormContainer, Input, Error } from './styles';
 import { Button } from '../styles';
+import { connect } from "react-redux";
+import { RootState, Dispatch } from "../../store";
 
-const InlineForm: React.FC = () => {
-  const [email, setEmail] = useState('');
+const mapState = (state: RootState) => ({
+  login: state.login
+});
+
+const mapDispatch = (dispatch: Dispatch) => ({
+  loginUser: (payload:{ username: string; password: string }) => dispatch.login.loginUser(payload),
+});
+
+
+type StateProps = ReturnType<typeof mapState>;
+type DispatchProps = ReturnType<typeof mapDispatch>;
+type Props = StateProps & DispatchProps;
+
+const LoginForm: React.FC<Props> = (props) => {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+    
+    props.loginUser({username, password});
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <FormContainer onSubmit={(handleSubmit)}>
       <Input
         type="email"
         placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
         required
       />
       <Input
@@ -29,9 +43,13 @@ const InlineForm: React.FC = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <Button type="submit">Login / Register</Button>
+      <Button type="submit">{ props.login.isLoading ? "Loading..." : "Login / Register"}</Button>
+      {!!props.login.error && <Error>{props.login.error}</Error>}
     </FormContainer>
   );
 };
 
-export default InlineForm;
+const LoginFormContainer = connect(mapState, mapDispatch)(LoginForm);
+
+export default LoginFormContainer;
+

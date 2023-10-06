@@ -9,6 +9,7 @@ export const Button = styled.button`
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+  min-width: 150px;
 `;
 
 export const SecondaryButton = styled.button`
@@ -19,4 +20,5 @@ border: none;
 border-radius: 4px;
 font-size: 16px;
 cursor: pointer;
+min-width: 150px;
 `;

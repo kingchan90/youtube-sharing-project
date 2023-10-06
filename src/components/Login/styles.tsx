@@ -5,6 +5,7 @@ import styled from 'styled-components';
 export const FormContainer = styled.form`
   display: flex;
   align-items: center;
+  position: relative;
 `;
 
 export const Input = styled.input`
@@ -15,4 +16,11 @@ export const Input = styled.input`
   font-size: 16px;
 `;
 
+export const Error = styled.span`
+  position: absolute;
+  color: #f14b4b;
+  top: 100%;
+  margin: 0;
+  font-size: 0.8rem;
+`
 
