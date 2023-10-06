@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header />
       <Main>{children}</Main>
       <Footer>
-        <p>&copy; 2023 My App</p>
+        <p>&copy; 2023 Simple Youtube Web Application</p>
       </Footer>
     </AppLayout>
   );

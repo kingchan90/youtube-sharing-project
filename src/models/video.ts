@@ -18,10 +18,4 @@ export const video = createModel<RootModel>()({
       };
     },
   },
-  effects: (dispatch) => ({
-    async incrementAsync(payload: number, state) {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      dispatch.count.increment(payload);
-    },
-  }),
 });

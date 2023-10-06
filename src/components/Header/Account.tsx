@@ -16,7 +16,6 @@ const Account: React.FC = () => {
 
 const onClickShareVideo = () => {
   redirect("/404")
-
 }
 
   return (<ButtonContainer>

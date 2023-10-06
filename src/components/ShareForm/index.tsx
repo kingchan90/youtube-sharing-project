@@ -1,18 +1,22 @@
-import React, { useState } from "react";
-import { FormContainer, Wrapper, Legend, Input, Label, RightCol } from './styles';
+import React, { useState, useCallback } from "react";
+import { FormContainer, Wrapper, Legend, Input, Label, RightCol, SuccessMessage } from './styles';
 import { Button } from "../styles";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch, RootState } from "../../store";
 
 const ShareForm: React.FC = () => {
   const [youtubeUrl, setYoutubeUrl] = useState('');
+  const [submitSuccess, setsubmitSuccess] = useState(false);
   const dispatch = useDispatch<Dispatch>();
   const video = useSelector((state: RootState) => state.video);
-  const handelOnSubmit = (e: React.FormEvent) => { 
+  const handelOnSubmit = useCallback((e: React.FormEvent) => { 
     e.preventDefault();
-    dispatch.video.addVideo({url: youtubeUrl});
 
-  }
+    dispatch.video.addVideo({url: youtubeUrl});
+    window.localStorage.setItem("video", JSON.stringify([...JSON.parse(localStorage.getItem('video') || '[]'), {url: youtubeUrl}]));
+    
+    setsubmitSuccess(true);
+  }, [dispatch, youtubeUrl, video])
   return (
     <Wrapper>
       <Legend>Share a youtube movie</Legend>
@@ -28,8 +32,8 @@ const ShareForm: React.FC = () => {
         />
         <Button style={{width: "100%"}}>Share</Button>
         </RightCol>
+        {submitSuccess && <SuccessMessage>Video shared successfully</SuccessMessage>}
       </FormContainer>
-      {video.videos.map((video) => <div key={video.url + ""}>{video.url}</div>)}
     </Wrapper>
   )
 }

@@ -22,6 +22,7 @@ export const FormContainer = styled.form`
   display: flex;
   position: relative;
   gap: 16px;
+  flex-flow: row wrap;
 `;
 
 export const Input = styled.input`
@@ -43,4 +44,9 @@ flex: 1 1 auto;
 display: flex;
 flex-direction: column;
 gap: 16px;
+`
+
+export const SuccessMessage = styled.div`
+color: green;
+font-size: 0.8rem;
 `
