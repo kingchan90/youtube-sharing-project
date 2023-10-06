@@ -11,9 +11,14 @@ const Account: React.FC = () => {
  const onClickLogOut = useCallback(() => {
     dispatch.login.logoutUser();
   }, [dispatch]);
+
+const onClickShareVideo = useCallback(() => {
+  dispatch.login.shareVideo();
+}, [dispatch])
+
   return (<ButtonContainer>
     <CustomerName>{login.user?.username}</CustomerName>
-    <Button disabled={login.isLoading}>{login.isLoading ? 'Loading...' : 'Share a movie'}</Button>
+    <Button disabled={login.isLoading} onClick={onClickShareVideo}>{login.isLoading ? 'Loading...' : 'Share a movie'}</Button>
     <SecondaryButton disabled={login.isLoading} onClick={onClickLogOut}>{login.isLoading ? 'Loading...' : 'Logout'}</SecondaryButton>
   </ButtonContainer>)
 }

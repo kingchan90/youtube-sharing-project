@@ -45,7 +45,7 @@ const login = createModel<RootModel>()({
       };
     },
     logout(state: LoginState): LoginState {
-      window.localStorage.setItem('token', '');
+      window.localStorage.setItem("token", "");
       return {
         ...state,
         isLoggedIn: false,
@@ -91,7 +91,10 @@ const login = createModel<RootModel>()({
       dispatch.login.startLoading();
       try {
         let myHeaders = new Headers();
-        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+        myHeaders.append(
+          "Authorization",
+          `Bearer ${localStorage.getItem("token")}`
+        );
         const response = await fetch("http://localhost:3000/logout", {
           method: "POST",
           headers: myHeaders,
@@ -109,6 +112,8 @@ const login = createModel<RootModel>()({
       dispatch.login.stopLoading();
     },
     async getUser() {
+      dispatch.login.startLoading();
+
       try {
         const token = localStorage.getItem("token");
 
@@ -127,10 +132,13 @@ const login = createModel<RootModel>()({
           const user = await response.json();
           dispatch.login.loginSuccess(user);
         } else {
-          console.log('Token is invalid')
+          console.log("Token is invalid");
         }
+        dispatch.login.stopLoading();
       } catch (error) {
-        console.log('Token is invalid')
+        dispatch.login.stopLoading();
+
+        console.log("Token is invalid");
       }
     },
   }),

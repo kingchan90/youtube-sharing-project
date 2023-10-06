@@ -1,7 +1,6 @@
 // src/components/Login/styles.tsx
 import styled from 'styled-components';
 
-// Styled components for form elements
 export const FormContainer = styled.form`
   display: flex;
   align-items: center;

@@ -3,26 +3,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SkeletonContainer = styled.div`
-  background-color: #f0f0f0; /* Background color for the skeleton */
+  background-color: #f0f0f0;
   border-radius: 4px;
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: 5px;
+  min-width: 300px;
+  min-heigth: 34.5px;
 `;
 
-const SkeletonRow = styled.div`
-  height: 20px; /* Height of each skeleton row */
-  width: 100%; /* Full width */
-  margin-bottom: 8px; /* Spacing between rows */
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); /* Shimmer effect */
-  background-size: 200% 100%; /* Animation size */
-  animation: loading 1.5s infinite; /* Animation with an infinite loop */
+export const SkeletonRow = styled.div`
+  height: 20px;
+  width: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
 `;
 
 const SkeletonElement: React.FC = () => {
   return (
     <SkeletonContainer>
-      <SkeletonRow></SkeletonRow>
-      <SkeletonRow></SkeletonRow>
       <SkeletonRow></SkeletonRow>
     </SkeletonContainer>
   );
