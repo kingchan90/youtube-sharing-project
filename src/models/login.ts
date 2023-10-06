@@ -105,19 +105,22 @@ const login = createModel<RootModel>()({
         } else {
           console.log("An error occurred");
         }
+
+        dispatch.login.stopLoading();
       } catch (error) {
         console.log("An error occurred");
         dispatch.login.stopLoading();
       }
-      dispatch.login.stopLoading();
     },
     async getUser() {
       dispatch.login.startLoading();
-
+      console.log('do getUser')
       try {
         const token = localStorage.getItem("token");
 
         if (!token) {
+          dispatch.login.stopLoading();
+
           return;
         }
 

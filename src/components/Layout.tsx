@@ -3,7 +3,6 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 const AppLayout = styled.div`
-  /* Define your layout styles here */
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -18,6 +17,9 @@ const Main = styled.main`
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Footer = styled.footer`

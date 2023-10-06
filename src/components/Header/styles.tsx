@@ -13,7 +13,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between; /* To push buttons to the right */
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;

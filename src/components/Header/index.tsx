@@ -5,13 +5,17 @@ import Account from './Account';
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import SkeletonElement from "../Skeleton";
+import { Link } from "react-router-dom";
 
 const HeaderContainer: React.FC = () => {
   const login = useSelector((state:RootState) => state.login);
+  console.log(login)
   return (
     <StyledHeader>
       <StyledWrapper>
-        <StyledLogo />
+        <Link to="/">
+          <StyledLogo />
+        </Link>
         {login.isLoading === undefined ? <SkeletonElement /> : (login.isLoading) ? (<SkeletonElement />) : (login.user ? (<Account />) : (<Login />))}
       </StyledWrapper>
     </StyledHeader>
